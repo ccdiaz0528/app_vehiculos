@@ -49,9 +49,9 @@
                 <input type="radio" id="no" name="accidente" value="0">
                 <label for="no">No</label><br>
             </div>
-                <button type="reset" class="btn btn-primary">Limpiar campos</button>
-                <hr>
                 <button type="submit" class="btn btn-primary">Crear un registro de un vehiculo</button>
+                <hr>
+                <button type="reset" class="btn btn-primary">Limpiar campos</button>
         </form>
     </div>
 

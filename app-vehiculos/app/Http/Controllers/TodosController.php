@@ -10,17 +10,21 @@ class TodosController extends Controller
 
         $request->validate([
             'marca'=> 'required|max:20',
-            'placa'=> 'required|min:6|unique:todos,placa',
+            'placa'=> 'required|min:6|unique:todos,placa|regex:/^[A-Z]{3}[0-9]{3}$/',
             'color'=> 'required|max:20',
-            'modelo'=> 'required|min:4',
+            'modelo'=> 'required|regex:/^[0-9]{4}$/|integer',
             'fecha_de_compra'=> 'required|date|before_or_equal:today',
             'accidente'=> 'required',
         ],['placa.unique' => 'La placa ingresada ya se encuentra registrada.',
         'marca.required' => 'La marca es un campo obligatorio',
         'color.required' => 'El color es un campo obligatorio',
         'placa.required'=>'La placa es un campo obligatorio',
+        'placa.regex' => 'El formato de la placa es incorrecto',
         'modelo.required'=> 'El modelo es un campo obligatorio',
+        'modelo.integer' => 'El campo modelo solo debe contener numeros',
+        'modelo.regex' => 'El campo modelo esta incompleto',
         'fecha_de_compra.required' => 'La fecha de compra es un campo obligatorio',
+        'fecha_de_compra.before_or_equal' => 'En el campo fecha de compra debes ingresar una fecha valida',
         'accidente.required' => '¿Tuvo un accidente? Es un campo obligatorio']);
 
         $todo = new Todo;

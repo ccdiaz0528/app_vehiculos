@@ -6,9 +6,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 //metodos a realizar
-Route::get('/tareas', [TodosController::class, 'index'])->name('todos');
+Route::get('/registrar', [TodosController::class, 'index'])->name('todos');
 //Ruta para almacenar mis datos a la base de datos
-Route::post('/tareas', [TodosController::class, 'store'])->name('todos');
+Route::post('/registrar', [TodosController::class, 'store'])->name('todos');
 //Ruta para editar los registros de la base de datos
 Route::get('/tareas/{id}', [TodosController::class, 'show'])->name('todos-edit');
 //Ruta para reescribir los datos antiguos por los recien editados
