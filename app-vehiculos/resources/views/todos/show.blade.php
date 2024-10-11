@@ -35,9 +35,9 @@
 
             <div class="mb-3">
                 <label for="marca" class="form-label">Marca</label>
-                <input type="text" name="marca" class="form-control" value="{{$todo -> marca}}">
+                <input type="text" name="marca" class="form-control" value="{{$todo -> marca}}" >
                 <label for="placa" class="form-label">Placa</label>
-                <input type="text" name="placa" class="form-control" value="{{$todo -> placa}}" >
+                <input type="text" name="placa" class="form-control" value="{{$todo -> placa}}" oninput="this.value = this.value.toUpperCase()" >
                 <label for="color" class="form-label">Color</label>
                 <input type="text" name="color" class="form-control" value="{{$todo -> color}}">
                 <label for="modelo" class="form-label">Modelo</label>
@@ -45,9 +45,9 @@
                 <label for="fecha_de_compra" class="form-label">Fecha de compra</label>
                 <input type="date" name="fecha_de_compra" class="form-control" value="{{$todo -> fecha_de_compra}}">
                 <label for="accidente" class="form-label">¿Tuvo un accidente?</label><br>
-                <input type="radio" id="si" name="accidente" value="1" value="{{$todo -> accidente== 1 ? 'checked' : '' }}">
+                <input type="radio" id="si" name="accidente" value="1" {{ (isset($todo) && $todo->accidente == 1) ? 'checked' : '' }}>
                 <label for="si">Sí</label><br>
-                <input type="radio" id="no" name="accidente" value="0" value="{{$todo -> accidente== 0 ? 'checked' : '' }}">
+                <input type="radio" id="no" name="accidente" value="0" {{ (isset($todo) && $todo->accidente == 0) ? 'checked' : '' }}>
                 <label for="no">No</label><br>
             </div>
                 <button type="submit" class="btn btn-primary">Actualizar un registro de un vehiculo</button>

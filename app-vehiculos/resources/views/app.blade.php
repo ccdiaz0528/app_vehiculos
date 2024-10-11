@@ -42,6 +42,9 @@
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="/registrar">Registrar</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/registros">Registros</a>
               </li>            
             </ul>
           </div>
