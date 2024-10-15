@@ -44,9 +44,18 @@ class TodosController extends Controller
         return view ('todos.index',['todos' => $todos]);
     }
 
-    public function log(){
-        $todos = Todo::paginate(5);
-        return view ('todos.log',['todos' => $todos]);
+    public function log(Request $request){
+        $search = $request->input('search');
+
+        $todos = Todo::when($search, function ($query, $search) {
+            return $query->where('marca', 'like', "%$search%")
+                        ->orWhere('placa', 'like', "%$search%")
+                        ->orWhere('modelo', 'like', "%$search%")
+                        ->orWhere('color', 'like', "%$search%");
+        })->paginate(5);
+    
+        return view('todos.log', ['todos' => $todos, 'search' => $search]);
+        
     }
 
 
